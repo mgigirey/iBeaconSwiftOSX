@@ -7,7 +7,8 @@ This application runs on Yosemite (OS X 10.10).
 
 Initially based on [BeaconOSX](https://github.com/mttrb/BeaconOSX) written in Objective-C for Mavericks by Matthew Robinson.
 
-**Note**: Despite to the fact that many forums are saying that you cannot use Yosemite as an iBeacon, I can confirm that this solution is working. 
+**Note**: Despite to the fact that many forums are saying that you cannot use Yosemite as an iBeacon, I can confirm that this solution is working but only with external Bluetooth dongle.
+http://stackoverflow.com/a/27542365/3824765. 
 
 License
 ===
