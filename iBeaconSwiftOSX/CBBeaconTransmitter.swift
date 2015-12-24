@@ -45,8 +45,8 @@ final class CBBeaconTransmitter: NSObject, CBBeaconTransmitterProtocol {
     // Transmitting
     func startTransmitting() {
         if let advertisement = beaconData.beaconAdvertisement() {
-            println(advertisement)
-            manager.startAdvertising(advertisement)
+            print(advertisement)
+            manager.startAdvertising(advertisement as? [String : AnyObject])
         }
     }
     
@@ -54,38 +54,38 @@ final class CBBeaconTransmitter: NSObject, CBBeaconTransmitterProtocol {
         manager.stopAdvertising()
         //manager.delegate = nil
         delegate?.transmitterDidStartAdvertising(false)
-        println("Advertising our iBeacon Stopped")
+        print("Advertising our iBeacon Stopped")
     }
     
     
     // CBPeripheralManager Delegate
-    func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager!) {
-        print("The peripheral state is ")
+    func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
+        print("The peripheral state is ", terminator: "")
         switch peripheral.state {
         case .PoweredOff:
-            println("Powered off")
+            print("Powered off")
         case .PoweredOn:
-            println("Powered on")
+            print("Powered on")
         case .Resetting:
-            println("Resetting")
+            print("Resetting")
         case .Unauthorized:
-            println("Unauthorized")
+            print("Unauthorized")
         case .Unknown:
-            println("Unknown")
+            print("Unknown")
         case .Unsupported:
-            println("Unsupported")
+            print("Unsupported")
         }
         
         let isPoweredOn = peripheral.state == CBPeripheralManagerState.PoweredOn ? true : false
         delegate?.transmitterDidPoweredOn(isPoweredOn)
     }
     
-    func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager!, error: NSError!) {
+    func peripheralManagerDidStartAdvertising(peripheral: CBPeripheralManager, error: NSError?) {
         if error == nil {
-            println("Advertising our iBeacon Started")
+            print("Advertising our iBeacon Started")
             delegate?.transmitterDidStartAdvertising(true)
         } else {
-            println("Failed to advertise iBeacon. Error = \(error)")
+            print("Failed to advertise iBeacon. Error = \(error)")
             delegate?.transmitterDidStartAdvertising(false)
         }
     }

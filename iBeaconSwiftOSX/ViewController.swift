@@ -60,22 +60,22 @@ class ViewController: NSViewController, CBTransmitterDelegate {
     }
     
     func loadUserDefaults() {
-        var udid : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBUserDefaultsUDID)
+        let udid : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBUserDefaultsUDID)
         if udid != nil {
             uuidTextField.stringValue = "\(udid!)"
         }
         
-        var major : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBCUserDefaultsMajor)
+        let major : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBCUserDefaultsMajor)
         if major != nil {
             majorTextField.stringValue = "\(major!)"
         }
         
-        var minor : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBCUserDefaultsMinor)
+        let minor : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBCUserDefaultsMinor)
         if minor != nil {
             minorTextField.stringValue = "\(minor!)"
         }
         
-        var measuredPower : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBCUserDefaultsMeasuredPower)
+        let measuredPower : NSString? = NSUserDefaults.standardUserDefaults().stringForKey(kCBCUserDefaultsMeasuredPower)
         if measuredPower != nil {
             measuredPowerTextField.stringValue = "\(measuredPower!)"
         }
