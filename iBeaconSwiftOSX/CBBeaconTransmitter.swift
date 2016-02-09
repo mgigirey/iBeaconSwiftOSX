@@ -46,7 +46,7 @@ final class CBBeaconTransmitter: NSObject, CBBeaconTransmitterProtocol {
     func startTransmitting() {
         if let advertisement = beaconData.beaconAdvertisement() {
             println(advertisement)
-            manager.startAdvertising(advertisement)
+            manager.startAdvertising(advertisement as [NSObject : AnyObject])
         }
     }
     
